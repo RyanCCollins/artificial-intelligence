@@ -1,8 +1,11 @@
 # Artificial Intelligence
 
-This is a repository meant to document my education of Artificial Intelligence. It includes the 5 projects from the Udacity Artificial Intelligence curriculum.
+This is a repository meant to document my education of Artificial Intelligence through the Udacity AI Nanodegree.
 
-## Projects
+# Projects
+
+## Part 1
+
 ### 1. Build a Game-Playing Agent
 ![Hidden Markov Models](https://github.com/RyanCCollins/cdn/blob/master/aind/hmm.jpg?raw=true)
 
