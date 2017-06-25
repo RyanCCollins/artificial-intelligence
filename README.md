@@ -20,3 +20,6 @@ Solve air cargo logistics problems by decomposing them into individual actions u
 ![Graph Heuristics](https://github.com/RyanCCollins/cdn/blob/master/aind/graph-heuristics.gif?raw=true)
 
 Use Hidden Markov Models to recognize gestures in American Sign Language, from individual words to complete sentences. Train it on a dataset of videos that have been pre-processed and annotated, and test on novel sequences. Improve your recognizer by finding the best English translation of each sentence.
+
+## Part 2
+Coming soon!
