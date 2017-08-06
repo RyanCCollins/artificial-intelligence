@@ -23,13 +23,13 @@ def naked_twins(values):
     Returns:
         the values dictionary with the naked twins eliminated from peers.
     """
-
+    
     # Find all instances of naked twins
     # Eliminate the naked twins as possibilities for their peers
 
 def cross(A, B):
     "Cross product of elements in A and elements in B."
-    pass
+    return [a+b for a in A for b in B]
 
 def grid_values(grid):
     """
@@ -72,6 +72,17 @@ def solve(grid):
     Returns:
         The dictionary representation of the final sudoku grid. False if no solution exists.
     """
+
+#globals
+rows = 'ABCDEFGHI'
+cols = '123456789'
+boxes = cross(rows, cols)
+row_units = [cross(row, cols) for row in rows]
+column_units = [cross(rows, col) for col in cols]
+square_rows = ('ABC','DEF','GHI')
+square_cols = ('123','456','789')
+square_units = [cross(rs, cs) for rs in square_rows for cs in square_cols]
+unitlist = row_units + column_units + square_units
 
 if __name__ == '__main__':
     diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
