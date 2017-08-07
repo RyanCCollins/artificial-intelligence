@@ -2,8 +2,6 @@
 
 This is a repository meant to document my education of Artificial Intelligence through the Udacity AI Nanodegree.
 
-# Projects
-
 ## Part 1
 
 ### 1. Build a Game-Playing Agent
