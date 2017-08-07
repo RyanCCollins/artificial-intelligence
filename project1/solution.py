@@ -25,7 +25,6 @@ def naked_twins(values):
     """
     
     # Find all instances of naked twins
-    fin
     # Eliminate the naked twins as possibilities for their peers
 
 def cross(A, B):
@@ -42,7 +41,7 @@ def grid_values(grid):
             Keys: The boxes, e.g., 'A1'
             Values: The value in each box, e.g., '8'. If the box has no value, then the value will be '123456789'.
     """
-    pass
+    return dict(zip(boxes, [cols if val == '.' else box for box in grid])
 
 def display(values):
     """
@@ -53,10 +52,41 @@ def display(values):
     pass
 
 def eliminate(values):
-    pass
+    """Eliminate values from peers of each box with a single value.
+
+    Go through all the boxes, and whenever there is a box with a single value,
+    eliminate this value from the set of values of all its peers.
+
+    Args:
+        values: Sudoku in dictionary form.
+    Returns:
+        Resulting Sudoku in dictionary form after eliminating values.
+    """
+    solved = [box for box in values.keys() if len(values[box]) == 1]
+    for box in solved:
+        digit = values[box]
+        for peer in peers[box]:
+            values[peer] = values[peer].replace(digit, '')
+    
+    return values
+
 
 def only_choice(values):
-    pass
+    """Finalize all values that are the only choice for a unit.
+
+    Go through all the units, and whenever there is a unit with a value
+    that only fits in one box, assign the value to this box.
+
+    Input: Sudoku in dictionary form.
+    Output: Resulting Sudoku in dictionary form after filling in only choices.
+    """
+    for unit in unitlist:
+        for digit in cols:
+            possibilities = [box for box in unit if digit in values[box]]
+            if len(possibilities) == 1:
+                values[possibilities[0]] = digit
+        
+    return values
 
 def reduce_puzzle(values):
     pass
@@ -86,8 +116,6 @@ square_units = [cross(rs, cs) for rs in square_rows for cs in square_cols]
 unitlist = row_units + column_units + square_units
 units = dict((s, [u for u in unitlist if s in u]) for s in boxes)
 peers = dict((s, set(sum(units[s], []))-set([s])) for s in boxes)
-
-print(units)
 
 if __name__ == '__main__':
     diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
