@@ -25,6 +25,7 @@ def naked_twins(values):
     """
     
     # Find all instances of naked twins
+    fin
     # Eliminate the naked twins as possibilities for their peers
 
 def cross(A, B):
@@ -83,6 +84,10 @@ square_rows = ('ABC','DEF','GHI')
 square_cols = ('123','456','789')
 square_units = [cross(rs, cs) for rs in square_rows for cs in square_cols]
 unitlist = row_units + column_units + square_units
+units = dict((s, [u for u in unitlist if s in u]) for s in boxes)
+peers = dict((s, set(sum(units[s], []))-set([s])) for s in boxes)
+
+print(units)
 
 if __name__ == '__main__':
     diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
