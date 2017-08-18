@@ -15,6 +15,15 @@ def assign_value(values, box, value):
         assignments.append(values.copy())
     return values
 
+def find_twins(values, box, value):
+
+def remove_twins(values, unit, value):
+    for box in unit:
+        if values[box] != value:
+            
+
+
+
 def naked_twins(values):
     """Eliminate values using the naked twins strategy.
     Args:
@@ -26,7 +35,7 @@ def naked_twins(values):
     
     # Find all instances of naked twins
     # Eliminate the naked twins as possibilities for their peers
-    pass
+    
 
 def cross(A, B):
     "Cross product of elements in A and elements in B."
